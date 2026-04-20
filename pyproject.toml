@@ -6,3 +6,15 @@ authors = [{name = "Projjwal Roy Chowdhury", email = "you@example.com"}]
 requires-python = ">=3.11"
 
 dependencies = ["scrapy>=2.11"]
+
+[tool.black]
+line-length = 88
+skip-string-normalization = false
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = "E203,W503"
