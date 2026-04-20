@@ -1,0 +1,9 @@
+[project]
+name = "job-scrapper"
+version = "0.1.0"
+description = "CLI utility to scrape job listings"
+authors = [{name = "Projjwal Roy Chowdhury", email = "you@example.com"}]
+requires-python = ">=3.11"
+
+[project.dependencies]
+scrapy = "^2.11"
