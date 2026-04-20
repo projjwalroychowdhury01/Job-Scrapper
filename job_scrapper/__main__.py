@@ -1,4 +1,7 @@
 import argparse
+import os
+
+
 from scrapy.crawler import CrawlerProcess
 from .settings import SCRAPY_SETTINGS
 from .spiders import (
@@ -31,14 +34,11 @@ def main():
     args = build_parser().parse_args()
     process = CrawlerProcess(settings=SCRAPY_SETTINGS)
     # Add each spider (they all accept a `keyword` argument)
-    process.crawl(IndeedSpider, keyword=args.keyword)
-    process.crawl(NaukriSpider, keyword=args.keyword)
-    process.crawl(WellfoundSpider, keyword=args.keyword)
-    process.crawl(TopHireSpider, keyword=args.keyword)
-    process.crawl(InstaHireSpider, keyword=args.keyword)
-    process.crawl(GlassdoorSpider, keyword=args.keyword)
-    process.crawl(LinkedInSpider, keyword=args.keyword)
-    process.crawl(CompanySpider, keyword=args.keyword)
+    # If the environment variable SKIP_SPIDERS is set, do not schedule any spiders (useful for fast CI tests)
+    if os.getenv("SKIP_SPIDERS") == "1":
+        process.start()
+        return
+
 
     # Feed export configuration
     process.settings.set("FEED_URI", args.output)

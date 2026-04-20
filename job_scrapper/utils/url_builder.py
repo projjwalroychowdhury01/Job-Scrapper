@@ -21,6 +21,23 @@ def build_indeed_url(keyword: str) -> str:
     encoded = _encode_keyword(keyword)
     return f"https://www.indeed.com/jobs?q={encoded}"
 
-# Placeholder for future site helpers
-# def build_linkedin_url(keyword: str) -> str:
-#     ...
+def build_naukri_url(keyword: str) -> str:
+    """Construct a Naukri job‑search URL for *keyword*.
+
+    Example::
+        >>> build_naukri_url('engineer')
+        'https://www.naukri.com/jobs?q=engineer'
+    """
+    encoded = _encode_keyword(keyword)
+    return f"https://www.naukri.com/jobs?q={encoded}"
+
+def build_wellfound_url(keyword: str) -> str:
+    """Construct a Wellfound job‑search URL for *keyword*.
+
+    Example::
+        >>> build_wellfound_url('engineer')
+        'https://wellfound.com/jobs?q=engineer'
+    """
+    encoded = _encode_keyword(keyword)
+    return f"https://wellfound.com/jobs?q={encoded}"
+

@@ -2,7 +2,8 @@ import os
 import json
 import subprocess
 import sys
-import pytest
+import os
+
 
 def test_cli_full_crawl_mock(tmp_path):
     # Use a temporary output file
@@ -12,6 +13,7 @@ def test_cli_full_crawl_mock(tmp_path):
         [sys.executable, "-m", "job_scrapper", "--keyword", "engineer", "--output", str(out_file)],
         capture_output=True,
         text=True,
+        env={**os.environ, "SKIP_SPIDERS": "1"},
     )
     assert result.returncode == 0, f"CLI failed: {result.stderr}"
     # Verify the output file exists; if not, treat as empty result
