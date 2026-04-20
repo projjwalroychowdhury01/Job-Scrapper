@@ -5,6 +5,9 @@ __pycache__/
 
 # C extensions
 *.so
+.claude
+docs
+claude.md
 
 # Distribution / packaging
 .Python

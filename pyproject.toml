@@ -5,5 +5,4 @@ description = "CLI utility to scrape job listings"
 authors = [{name = "Projjwal Roy Chowdhury", email = "you@example.com"}]
 requires-python = ">=3.11"
 
-[project.dependencies]
-scrapy = "^2.11"
+dependencies = ["scrapy>=2.11"]
